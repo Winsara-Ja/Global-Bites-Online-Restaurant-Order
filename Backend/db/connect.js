@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
-const Url = "mongodb://localhost:27017/Test1";
+const Url =
+  "mongodb+srv://Jinithya:200168803730j@cluster0.kmbulwt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 const connectDB = async () => {
   try {
@@ -12,5 +13,3 @@ const connectDB = async () => {
 };
 
 module.exports = connectDB;
-
-//
