@@ -1,0 +1,49 @@
+.tbl_page_deliver {
+  padding: 50px 18%;
+}
+.table_details_admin {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  text-transform: capitalize;
+}
+.table_details_admin .admin_tbl_th,
+.table_details_admin .admin_tbl_td {
+  border: 2px solid black;
+  padding: 8px;
+}
+
+.table_details_admin .admin_tbl_th {
+  background-color: black;
+  color: white;
+  font-size: 18px;
+}
+
+.btn_dash_admin {
+    background-color: #1b4850;
+    color: white;
+    border: 2px solid #1b4850;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 3px 10px;
+    text-decoration: none;
+    margin-right: 25px;
+    font-weight: bold;
+    text-transform: capitalize;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .btn_dash_admin_dlt {
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 3px 10px;
+    font-weight: bold;
+    text-transform: capitalize;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }

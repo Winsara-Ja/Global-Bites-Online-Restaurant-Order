@@ -1,0 +1,76 @@
+.formbox_delivery {
+  display: flex;
+  justify-content: center;
+}
+.delivery_btn1 {
+  background-color: #ffe40b;
+  font-size: 22px;
+  color: black;
+  width: 450px;
+  height: 50px;
+  border: 2px solid #ffe40b;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.delivery_btn:hover {
+  background-color: white;
+  color: #ffe40b;
+  border: 2px solid #ffe40b;
+}
+
+.textsen1 {
+  font-family: "JetBrains Mono", monospace;
+  text-align: center;
+  font-size: 30px;
+}
+
+.delivery_form {
+  width: 450px;
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  padding: 15px;
+  border: 2px solid #ffe40b;
+}
+.delivery_btn_cen {
+  background-color: #ffe40b;
+  font-size: 22px;
+  color: black;
+  border: 2px solid #ffe40b;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+  justify-content: center;
+  display: flex;
+  margin: 0 auto;
+}
+.delivery_btn_cen:hover {
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+  border: 2px solid #0a0a0a;
+}
+.delivery_lable {
+  font-size: 18px;
+  font-weight: bold;
+}
+.delivery_input {
+  width: 94%;
+  font-size: 15px;
+  padding: 3px 10px;
+  margin: 10px 0;
+}
+
+.delivery_input_select {
+  width: 100%;
+  font-size: 15px;
+  padding: 3px 10px;
+  margin: 10px 0;
+}
+
+.delivery_input_time {
+  width: 43%;
+  font-size: 15px;
+  padding: 3px 10px;
+  margin: 10px 0;
+}

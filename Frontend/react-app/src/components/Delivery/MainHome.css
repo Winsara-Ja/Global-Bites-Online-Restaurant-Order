@@ -1,0 +1,30 @@
+.select_box {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 25px;
+  font-family: "JetBrains Mono", monospace;
+}
+.select_box_card {
+  width: 350px;
+  background-color: #ffe30b37;
+  border-radius: 5px;
+  border: 2px solid #ffe30b;
+  padding: 25px;
+  cursor: pointer;
+}
+.select_box_card:hover {
+  background-color: #ffe30b9f;
+}
+
+.topic_select {
+  font-size: 25px;
+}
+
+.main_topic_home {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: bold;
+  text-align: center;
+  font-size: x-large;
+  margin: 20px;
+}
