@@ -12,6 +12,7 @@ const feedbackRoute = require("./routes/feedbackRoute.js");
 const DeliveryRoutes = require("./routes/DeliveryRoute.js");
 const PickupRoutes = require("./routes/PickupRoute.js");
 const CateringRoute = require("./routes/CateringRoute");
+const inventoryRoute = require("./routes/inventoryRoute.js");
 const app = express();
 
 connectDB();
@@ -29,6 +30,7 @@ app.use("/", userRoutes);
 app.use("/", authRoutes);
 app.use("/", feedbackRoute);
 app.use("/", CateringRoute);
+app.use("/", inventoryRoute);
 app.use("/signinhistory", signinHistoryRoutes);
 app.use("/deliveries", DeliveryRoutes);
 app.use("/pickups", PickupRoutes);

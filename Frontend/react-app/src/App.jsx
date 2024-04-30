@@ -54,6 +54,10 @@ import DeliveryDashboard from "./Pages/Managers/DeliveryDashboard.jsx";
 import AddService from "./components/addservice.jsx";
 import Servicedetails from "./components/servicedetails";
 import UpdateService from "./components/update_service";
+import AddItem from "./components/AddItem/AddItem";
+import UpdateItem from "./components/UpdateItem/UpdateItem";
+import Items from "./components/Inventory/Items";
+import Item from "./components/Inventory/Item";
 //import AdminHome from "./Components/Delivery/AdminHome";
 
 axios.defaults.withCredentials = true;
@@ -134,6 +138,10 @@ function App() {
         <Route path="/catering" element={<AddService />}></Route>
         <Route path="/details" element={<Servicedetails />}></Route>
         <Route path="/update_service/:id" element={<UpdateService />}></Route>
+        <Route path="/addinventory" element={<AddItem />} />
+        <Route path="/manager/inventory" element={<Items />} />
+        <Route path="/items/:id" element={<Item />} />
+        <Route path="/items/update/:id" element={<UpdateItem />} />
       </Routes>
     </UserContextProvider>
   );

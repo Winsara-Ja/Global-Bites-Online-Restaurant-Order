@@ -57,7 +57,7 @@ export const manager_list = [
     image: Feedback,
   },
   {
-    route: 4,
+    route: "inventory",
     name: "Inventory Management",
     image: Inventory,
   },
