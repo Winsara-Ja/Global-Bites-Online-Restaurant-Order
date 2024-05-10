@@ -56,6 +56,7 @@ function Servicedetails() {
   return (
     <>
       <ManagerHeader />
+      <div className="emptyspace1"></div>
       <div className="showoservices">
         <div className="searchbtn">
           <input
@@ -73,38 +74,40 @@ function Servicedetails() {
         <div ref={componentPDF} style={{ width: "100%" }}>
           <table>
             <tr>
+              <th>Name</th>
               <th>Date </th>
               <th>Place </th>
-              <th>Dilivey Option</th>
               <th>Headcount</th>
               <th>Menu ID</th>
               <th>Request</th>
+              <th>Price</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
-            <table>
               {showcustomer.map((e1) => {
                 return (
                   <tr>
+                    <td> {e1.UserName}</td>
                     <td> {e1.Date}</td>
                     <td> {e1.Location}</td>
-                    <td> {e1.Dilivery_options}</td>
                     <td> {e1.Headcount}</td>
                     <td> {e1.Menu_id}</td>
                     <td> {e1.Special_request}</td>
-                    <td className="dback">
-                      <a href={`/update_service/${e1._id}`}>Edit Details</a>
-                      <button onClick={() => handledelete(e1._id)}>
-                        Delete{" "}
+                    <td> Rs.{e1.Price}</td>
+                    <td> {e1.Status}</td>
+                    <td className="dback1">
+                      <button onClick={() => handledelete(e1._id)} className="delete-catering">
+                        Delete
                       </button>
+                      {/* <a href={`/update_service/${e1._id}`} className="change-status">Edit Details</a> */}
                     </td>
                   </tr>
                 );
               })}
-            </table>
           </table>
         </div>
         <br></br>
-        <button onClick={generatePDF}>Download Repoart</button>
+        <div className="reportdownload"><button onClick={generatePDF} className="report">Download Repoart</button></div>
       </div>
     </>
   );

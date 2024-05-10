@@ -1,22 +1,26 @@
 /* CSS for Add Catering Service Form */
 
 .add-service {
-  max-width: 400px;
   margin: auto;
   padding: 30px;
   margin-top: 150px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
+  width: 90%;
 }
 
 .add-service h2 {
   text-align: center;
+  font-size: larger;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .add-service form {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .add-service label {
@@ -25,7 +29,7 @@
 
 .add-service input {
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -38,10 +42,24 @@
   background-color: #ffe40b;
   color: rgb(6, 0, 0);
   cursor: pointer;
-  width: 100%;
+  width: 170px;
 }
 
 .add-service button:hover {
   background-color: black;
   color: white;
+}
+
+.headcount {
+  width: 80px;
+}
+
+.cateringtotal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px gold solid;
+  width: 260px;
+  height: 50px;
+  margin: auto;
 }

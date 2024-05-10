@@ -1,4 +1,5 @@
 const Catering = require("../models/CateringSchema");
+const Menu = require("../models/CateringMenu")
 
 const getCatering = async (req, res) => {
   try {
@@ -11,13 +12,15 @@ const getCatering = async (req, res) => {
 
 const createCatering = async (req, res) => {
   try {
-    const { date, location, delivery, headcount, request, id } = req.body;
+    const { date, location, headcount, request, id, userID, UserName, total } = req.body;
     const data = await Catering.create({
+      UserID: userID,
+      UserName: UserName,
       Date: date,
       Location: location,
-      Dilivery_options: delivery,
       Headcount: headcount,
       Special_request: request,
+      Price: total,
       Menu_id: id,
     });
     if (data) {
@@ -92,11 +95,21 @@ const getUser = async (req, res) => {
   }
 };
 
+const getCateringMenu = async (req, res) => {
+  try {
+    const data = await Menu.find({});
+    res.json(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   getCatering,
   createCatering,
   updateCatering,
   deleteCatering,
+  getCateringMenu,
   getCount,
   getUser,
 };

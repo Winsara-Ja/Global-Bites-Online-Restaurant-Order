@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const Url =
-  "mongodb+srv://Jinithya:200168803730j@cluster0.kmbulwt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb://localhost:27017/GlobalBites";
 
 const connectDB = async () => {
   try {

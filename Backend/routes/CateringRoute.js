@@ -6,6 +6,7 @@ const {
   createCatering,
   updateCatering,
   deleteCatering,
+  getCateringMenu,
   getCount,
   getUser,
 } = require("../controllers/cateringController");
@@ -18,6 +19,7 @@ router.use(
 );
 
 router.get("/catering", getCatering);
+router.get("/cateringMenu", getCateringMenu);
 router.post("/create/catering", createCatering);
 router.put("/catering/update", updateCatering);
 router.delete("/catering/delete/:id", deleteCatering);
