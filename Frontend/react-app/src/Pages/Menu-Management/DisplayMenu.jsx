@@ -3,17 +3,19 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./displayMenu.css";
 import ManagerHeader from "../Managers/ManagerHeader";
+import { toast } from "react-hot-toast";
 
 const DisplayMenu = () => {
   const [items, setItems] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get("http://localhost:5000/items")
-      .then((items) => setItems(items.data))
+      .then((response) => setItems(response.data))
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   const handleDelete = async (id) => {
     const data = await axios.delete("http://localhost:5000/delete/" + id);
@@ -22,8 +24,32 @@ const DisplayMenu = () => {
       alert(data.data.message);
     }
   };
+
   const HandleEdit = async (id) => {
     navigate(`/updateMenu/${id}`);
+  };
+
+  const handleAvailabilityChange = async (id, newAvailability) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/updateAvailability/${id}`,
+        {
+          availability: newAvailability,
+        }
+      );
+
+      if (response.data.success) {
+        // Update the item's availability in the UI
+        setItems((prevItems) =>
+          prevItems.map((item) =>
+            item._id === id ? { ...item, availability: newAvailability } : item
+          )
+        );
+        toast.success("Availability updated successfully!")
+      }
+    } catch (error) {
+      console.error("Error updating availability:", error);
+    }
   };
 
   const handleAddItem = () => {
@@ -60,8 +86,9 @@ const DisplayMenu = () => {
               <th>Item Name</th>
               <th>Item Description</th>
               <th>Item Category</th>
-              <th>Item country</th>
+              <th>Item Country</th>
               <th>Item Image</th>
+              <th>Availability</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -78,6 +105,17 @@ const DisplayMenu = () => {
                     src={"http://localhost:5000/" + item.image}
                     alt={item.itemName}
                   />
+                </td>
+                <td>
+                  <select
+                    value={item.availability}
+                    onChange={(e) =>
+                      handleAvailabilityChange(item._id, e.target.value)
+                    }
+                  >
+                    <option value="available">Available</option>
+                    <option value="not-available">Not Available</option>
+                  </select>
                 </td>
                 <td className="button-col">
                   <button type="button" onClick={() => HandleEdit(item._id)}>

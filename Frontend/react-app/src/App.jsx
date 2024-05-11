@@ -58,6 +58,7 @@ import AddItem from "./components/AddItem/AddItem";
 import UpdateItem from "./components/UpdateItem/UpdateItem";
 import Items from "./components/Inventory/Items";
 import Item from "./components/Inventory/Item";
+import SingleMenuItem from "./Pages/SingleMenuItem.jsx";
 //import AdminHome from "./Components/Delivery/AdminHome";
 
 axios.defaults.withCredentials = true;
@@ -81,6 +82,7 @@ function App() {
         <Route path="/order" element={<Order />}></Route>
         <Route path="/addItems" element={<AddItems />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/singleItem/:id" element={<SingleMenuItem />} />
         <Route path="/manageMenu" element={<DisplayMenu />} />
         <Route path="/updateMenu/:id" element={<EditItems />} />
         <Route path="/offers" element={<Offers />} />

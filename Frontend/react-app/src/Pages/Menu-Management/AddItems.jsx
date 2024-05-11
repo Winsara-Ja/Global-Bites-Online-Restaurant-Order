@@ -153,8 +153,8 @@ const AddItems = () => {
         <div className="food-image-label-container">
           <label className="food-image-label">Food image</label>
         </div>
-        <div className="button-container">
-          <button className="btn1">Submit</button>
+        <div className="add-button-container">
+          <button className="btn-add">Submit</button>
         </div>
       </form>
     </div>

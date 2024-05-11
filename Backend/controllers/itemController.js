@@ -24,6 +24,8 @@ const createItem = async (req, res) => {
     try {
         const { itemId, itemName, Description, Price, category, country } = req.body
         const image = req.file ? req.file.filename : null;
+        const availability = "available"
+        const averageRating = 0
 
         const newItem = new Items({
             itemId: itemId,
@@ -32,7 +34,9 @@ const createItem = async (req, res) => {
             Price: Price,
             category: category,
             country: country,
-            image: image 
+            image: image,
+            availability: availability,
+            averageRating: averageRating
         })
 
         await newItem.save()
@@ -75,11 +79,38 @@ const updateItem = async (req, res) => {
     
 };
 
+const updateAvailability = async (req, res) => {
+  const itemId = req.params.id;
+  const { availability } = req.body;
+
+  try {
+    // Find the item by ID in the database
+    const item = await Items.findById(itemId);
+
+    // If item not found, return 404 status
+    if (!item) {
+      return res.status(404).json({ success: false, message: "Item not found." });
+    }
+
+    // Update the availability status
+    item.availability = availability;
+
+    // Save the updated item
+    await item.save();
+
+    // Return success response
+    return res.status(200).json({ success: true, message: "Availability updated successfully." });
+  } catch (error) {
+    console.error("Error updating availability:", error);
+    return res.status(500).json({ success: false, message: "Internal server error." });
+  }
+}
   
 module.exports = {
     getAllItems,
     getSingleItem,
     createItem,
     deleteItem,
-    updateItem
+    updateItem,
+    updateAvailability
   }

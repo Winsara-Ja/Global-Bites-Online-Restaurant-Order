@@ -7,15 +7,11 @@ body {
   margin-left: 58px;
 }
 
-.product-img {
-  float: left;
-  height: 420px;
-  width: 327px;
-}
 
 .menu-img2 img {
   width: 150px;
   height: 150px;
+  cursor: pointer;
 }
 
 .menu-img2 {
@@ -24,11 +20,12 @@ body {
 }
 .product-info {
   float: left;
-  height: 430px;
+  height: 380px;
   width: 310px;
-  margin: 10px;
+  margin: 20px;
   border-radius: 6px;
   background-color: #ffffff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .product-text h1 {
@@ -36,6 +33,7 @@ body {
   padding-top: 10px;
   font-size: 28px;
   color: #474747;
+  cursor: pointer;
 }
 
 .product-text h1,
@@ -52,7 +50,6 @@ body {
   color: #262626;
   letter-spacing: 0.2em;
   text-align: center;
-  display: none;
 }
 
 .product-text p {
@@ -215,6 +212,23 @@ body {
 .price-range-container button {
   font-family: "JetBrains Mono", monospace;
 }
+.not-available-msg{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+.not-available-msg p{
+  font-weight: 800;
+  background-color: #fffb0be8;
+  height: 44px;
+  width: 160px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 1050px) {
   .explore-menu-text {
     max-width: 100%;
