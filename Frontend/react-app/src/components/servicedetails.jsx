@@ -107,7 +107,7 @@ function Servicedetails() {
           </table>
         </div>
         <br></br>
-        <div className="reportdownload"><button onClick={generatePDF} className="report">Download Repoart</button></div>
+        <div className="reportdownload"><button onClick={generatePDF} className="report1">Download Repoart</button></div>
       </div>
     </>
   );

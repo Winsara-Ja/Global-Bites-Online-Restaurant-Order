@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const upload = require('../upload')
 const cors = require("cors");
 const {
   getCatering,
@@ -9,6 +10,10 @@ const {
   getCateringMenu,
   getCount,
   getUser,
+  getSingleItem,
+  createItem,
+  deleteItem,
+  updateItem
 } = require("../controllers/cateringController");
 
 router.use(
@@ -18,6 +23,11 @@ router.use(
   })
 );
 
+
+router.post("/createMenu", upload.single("image"), createItem)
+router.get("/itemsMenu/:id", getSingleItem)
+router.delete("/deleteMenu/:id", deleteItem)
+router.put("/updateMenu/:id", updateItem)
 router.get("/catering", getCatering);
 router.get("/cateringMenu", getCateringMenu);
 router.post("/create/catering", createCatering);

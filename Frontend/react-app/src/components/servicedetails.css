@@ -68,14 +68,14 @@ th {
   margin-top: 60px;
 }
 
-.report{
+.report1{
   width: 50%;
   height: 40px;
   color: white;
   background-color: black;
 }
 
-.report:hover {
+.report1:hover {
   background-color: rgb(229, 213, 31);
   color: #000;
 }
