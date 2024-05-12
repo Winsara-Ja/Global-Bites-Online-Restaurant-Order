@@ -19,7 +19,7 @@ const sendEmail = async (recipientEmail, itemName, userRating) => {
       from: 'ridmachalanavip1@outlook.com', // Your Outlook email address
       to: recipientEmail,
       subject: 'New Rating for Item',
-      text: `You have received a new rating of ${userRating} stars for the item: ${itemName}`
+      text: `Thank you for rating for the item: ${itemName} ${userRating} stars.hope you enjoy our service.feel free to send your concerns for this e-mail`
     });
     console.log('Email sent successfully');
   } catch (error) {

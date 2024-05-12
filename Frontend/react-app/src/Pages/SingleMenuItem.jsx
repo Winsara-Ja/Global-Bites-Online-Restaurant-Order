@@ -5,9 +5,11 @@ import axios from 'axios';
 import StarRate from '../components/StarRate';
 import { toast } from 'react-hot-toast';
 import Header from '../components/Header';
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
+import { useSelector } from "react-redux";
 
 const SingleMenuItem = () => {
+  const { currentUser, loading, error } = useSelector((state) => state.user);
   const { id } = useParams();
   const [itemData, setItemData] = useState({
     itemId: '',
@@ -20,11 +22,12 @@ const SingleMenuItem = () => {
     availability: '',
     averageRating: '' // Default average rating
   });
-  const userID = '663f918e5fad7d54ff807b6b';
+  const userID = currentUser._id;
   const [Quantity, setQuantity] = useState(1);
   const [userRating, setUserRating] = useState(null); // State to store the user's rating
   const [rating, setRating] = useState(null)
-  const email = "nrcpererera@gmail.com"
+  const [ratingCount, setRatingCount] = useState(null)
+  const email = currentUser.email
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,9 +37,10 @@ const SingleMenuItem = () => {
         // Fetch the user's rating for the item
         const userRatingResponse = await axios.get(`http://localhost:5000/ratings/${id}/${userID}`);
         if (userRatingResponse.data.rating) {
-          setUserRating(userRatingResponse.data.rating.rating);
-          
+          setUserRating(userRatingResponse.data.rating.rating); 
         }
+        const ratingCountResponse = await axios.get(`http://localhost:5000/count/${id}`);
+        setRatingCount(ratingCountResponse.data);
       } catch (error) {
         console.error('Error fetching item data:', error);
       }
@@ -44,7 +48,6 @@ const SingleMenuItem = () => {
     fetchData();
   }, [id]);
   
-
   const handleRatingChange = (value) => {
     setRating(value); // Update the user's rating state
   };
@@ -91,20 +94,28 @@ const SingleMenuItem = () => {
   };
 
   const renderStars = (rating) => {
-    const filledStars = Math.round(rating); // Round the rating to the nearest integer
-    const emptyStars = 5 - filledStars; // Calculate the number of empty stars
+    const filledStars = Math.floor(rating); // Round down the rating to the nearest integer
+    const hasHalfStar = rating % 1 !== 0; // Check if there's a decimal part
+  
     const stars = [];
-
+  
     // Render filled stars
     for (let i = 0; i < filledStars; i++) {
-      stars.push(<FaStar key={i} color="gold" />);
+        stars.push(<FaStar key={i} color="gold" />);
+    }
+  
+    // Render half-filled star if there's a decimal part and it's the first encountered
+    if (hasHalfStar) {
+        stars.push(<FaStarHalfAlt key={filledStars} color="gold" />);
     }
 
+    // Calculate the number of empty stars
+    const emptyStars = 5 - filledStars - (hasHalfStar ? 1 : 0);
+  
     // Render empty stars
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<FaStar key={filledStars + i} color="grey" />);
+        stars.push(<FaStar key={filledStars + i + (hasHalfStar ? 1 : 0)} color="grey" />);
     }
-
     return stars;
   };
 
@@ -115,6 +126,7 @@ const SingleMenuItem = () => {
         <h1>{itemData.itemId}</h1>
         <h1>{itemData.itemName}</h1>
         <div className='avg-rating'>{renderStars(itemData.averageRating)}</div>
+        <h2>({ratingCount} ratings)</h2>
         <div className='item-details'>
           <div className='item-image-container21'>
             <img src={'http://localhost:5000/' + itemData.image} alt={itemData.itemName} />

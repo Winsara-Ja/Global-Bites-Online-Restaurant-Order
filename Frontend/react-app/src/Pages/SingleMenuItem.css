@@ -46,6 +46,12 @@ body {
     letter-spacing: 0.2em;
     text-align: center;
   }
+
+  .container21 h2{
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+  }
   
   .container21 .item-details .item-text-container {
     display: flex;
@@ -125,5 +131,4 @@ body {
     display: flex; /* Use flexbox layout */
     align-items: center; /* Center items vertically */
     justify-content: center;
-    margin-bottom: 10px;
   }

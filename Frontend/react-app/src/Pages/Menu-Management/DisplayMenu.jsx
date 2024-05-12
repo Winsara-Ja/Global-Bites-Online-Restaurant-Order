@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./displayMenu.css";
 import ManagerHeader from "../Managers/ManagerHeader";
 import { toast } from "react-hot-toast";
+import { useReactToPrint } from "react-to-print";
 
-const DisplayMenu = () => {
+// Wrap the DisplayMenu component with React.forwardRef
+const DisplayMenu = React.forwardRef((props, ref) => {
   const [items, setItems] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
@@ -60,6 +62,14 @@ const DisplayMenu = () => {
     item.itemName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // Use useRef to get a reference to the component
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    DocumentTitle: "Menu Items",
+    onAfterPrint: () => alert("Details Report Successfully Download !"),
+  });
+
   return (
     <>
       <ManagerHeader />
@@ -78,7 +88,8 @@ const DisplayMenu = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
-      <div className="table-container">
+      <div className="table-container" ref={ref}>
+        {/* Assign ref to the table container */}
         <table>
           <thead>
             <tr>
@@ -88,6 +99,7 @@ const DisplayMenu = () => {
               <th>Item Category</th>
               <th>Item Country</th>
               <th>Item Image</th>
+              <th>Item Ratings</th>
               <th>Availability</th>
               <th>Action</th>
             </tr>
@@ -106,6 +118,7 @@ const DisplayMenu = () => {
                     alt={item.itemName}
                   />
                 </td>
+                <td>{item.averageRating}</td>
                 <td>
                   <select
                     value={item.availability}
@@ -130,8 +143,13 @@ const DisplayMenu = () => {
           </tbody>
         </table>
       </div>
+      <div className="download-pdf-container">
+        <button type="button" onClick={handlePrint}>
+          Download PDF
+        </button>
+      </div>
     </>
   );
-};
+});
 
 export default DisplayMenu;

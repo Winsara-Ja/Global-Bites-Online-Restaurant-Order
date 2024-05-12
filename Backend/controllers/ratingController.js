@@ -66,8 +66,21 @@ const sendEmails = async (req, res) => {
   }
 }
 
+const getAllRatings = async (req, res) => {
+  try {
+    const itemId = req.params.itemId
+    const count = await Ratings.countDocuments({itemId})
+    res.json(count)
+  } catch (error) {
+    console.error('Error fetching rating count:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+}
+
+
 module.exports = {
   AddRating,
   getSingleRating,
-  sendEmails
+  sendEmails,
+  getAllRatings
 };

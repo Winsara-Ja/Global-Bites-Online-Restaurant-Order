@@ -6,10 +6,10 @@ import Header from "../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
 const Menu = () => {
-  //const { currentUser, loading, error } = useSelector((state) => state.user);
+  const { currentUser, loading, error } = useSelector((state) => state.user);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [filteredItems, setFilteredItems] = useState([]);
@@ -17,7 +17,7 @@ const Menu = () => {
   const [Quantity, setQuantity] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [priceRange, setPriceRange] = useState({ min: "", max: "" });
-  const userID = "663f918e5fad7d54ff807b6b";
+  const userID = currentUser._id;
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -119,22 +119,31 @@ const Menu = () => {
   }
 
   const renderStars = (rating) => {
-    const filledStars = Math.round(rating); // Round the rating to the nearest integer
-    const emptyStars = 5 - filledStars; // Calculate the number of empty stars
+    const filledStars = Math.floor(rating); // Round down the rating to the nearest integer
+    const hasHalfStar = rating % 1 !== 0; // Check if there's a decimal part
+  
     const stars = [];
-
+  
     // Render filled stars
     for (let i = 0; i < filledStars; i++) {
-      stars.push(<FaStar key={i} color="gold" />);
+        stars.push(<FaStar key={i} color="gold" />);
     }
-
+  
+    // Render half-filled star if there's a decimal part and it's the first encountered
+    if (hasHalfStar) {
+        stars.push(<FaStarHalfAlt key={filledStars} color="gold" />);
+    }
+  
+    // Calculate the number of empty stars
+    const emptyStars = 5 - filledStars - (hasHalfStar ? 1 : 0);
+  
     // Render empty stars
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<FaStar key={filledStars + i} color="grey" />);
+        stars.push(<FaStar key={filledStars + i + (hasHalfStar ? 1 : 0)} color="grey" />);
     }
-
+  
     return stars;
-  };
+} 
 
   return (
     <>
