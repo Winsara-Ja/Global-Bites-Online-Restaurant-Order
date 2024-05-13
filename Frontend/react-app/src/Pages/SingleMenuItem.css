@@ -1,0 +1,134 @@
+body {
+    background-color: #fcfcfc;
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .container21{
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    background-color: #e4e4e4;
+  }
+
+  .container21 .item-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+  }
+  
+  .container21 .item-details .item-image-container21 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    width: 350px;
+  }
+  
+  .container21 .item-details .item-image-container21 img {
+    width: 90%; /* Adjust as needed */
+    height: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2)
+  }
+
+  .container21  h1{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #262626;
+    letter-spacing: 0.2em;
+    text-align: center;
+  }
+
+  .container21 h2{
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .container21 .item-details .item-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: 350px;
+  }
+
+  .container21 .item-details .item-text-container .price{
+    font-weight: 500;
+    font-size: larger;
+  }
+  
+  .container21 .item-details .not-available-msg {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+  }
+
+  .container21 .item-details .not-available-msg p{
+    font-weight: 800;
+    background-color: #fffb0be8;
+    height: 44px;
+    width: 160px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container21 .item-details .product-price-btn button {
+    display: inline-block;
+    height: 44px;
+    width: 160px;
+    box-sizing: border-box;
+    border: transparent;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #010101;
+    background-color: #fffb0be8;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .container21 .item-details .product-price-btn button:hover {
+    background-color: #010101;
+    color: #fffffffb;
+  }
+
+  .container21 .rating{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .container21 .rating button{
+    color: #010101;
+    background-color: #fffb0be8;
+    width: max-content;
+  }
+
+  .container21 .rating button:hover{
+    background-color: #010101;
+    color: #fffffffb;
+  }
+  .avg-rating{
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center;
+  }

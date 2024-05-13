@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.sidebrbox {
+  background-color: rgb(222, 224, 226);
+  width: 500px;
+  padding: 25px;
+  height: 80vh;
+  display: block;
+  position: fixed;
+}
+.locbox {
+  background-color: rgba(128, 128, 128, 0.149);
+  margin: 20px 0;
+  padding: 10px;
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+}
+.locbox:hover {
+  background-color: #ffe40b;
+}
+.loc_topic {
+  font-weight: 500;
+  font-size: 40px;
+}
+.loc_adres {
+  font-size: 25px;
+}

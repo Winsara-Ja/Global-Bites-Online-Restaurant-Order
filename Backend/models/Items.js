@@ -9,6 +9,8 @@ const MenuItem = mongoose.Schema(
     category: String,
     country: String,
     image: String,
+    availability: String,
+    averageRating: Number
   },
   {
     timestamps: true,

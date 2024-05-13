@@ -35,6 +35,29 @@ const DisplayMenu = () => {
     item.itemName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const handleAvailabilityChange = async (id, newAvailability) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/updateAvailability/${id}`,
+        {
+          availability: newAvailability,
+        }
+      );
+
+      if (response.data.success) {
+        // Update the item's availability in the UI
+        setItems((prevItems) =>
+          prevItems.map((item) =>
+            item._id === id ? { ...item, availability: newAvailability } : item
+          )
+        );
+        toast.success("Availability updated successfully!")
+      }
+    } catch (error) {
+      console.error("Error updating availability:", error);
+    }
+  };
+
   return (
     <>
       <NavBar />
@@ -63,6 +86,8 @@ const DisplayMenu = () => {
               <th>Item Category</th>
               <th>Item country</th>
               <th>Item Image</th>
+              <th>Item Ratings</th>
+              <th>Availability</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -79,6 +104,18 @@ const DisplayMenu = () => {
                     src={"http://localhost:5000/" + item.image}
                     alt={item.itemName}
                   />
+                </td>
+                <td>{item.averageRating}</td>
+                <td>
+                  <select
+                    value={item.availability}
+                    onChange={(e) =>
+                      handleAvailabilityChange(item._id, e.target.value)
+                    }
+                  >
+                    <option value="available">Available</option>
+                    <option value="not-available">Not Available</option>
+                  </select>
                 </td>
                 <td className="button-col">
                   <button type="button" onClick={() => HandleEdit(item._id)}>

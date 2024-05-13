@@ -1,0 +1,16 @@
+.mapiframe {
+  height: auto;
+  margin-left: 550px;
+  width: 67.5%;
+  height: 85.79vh;
+  border: 2px solid black;
+  background-color: black;
+}
+.dissub {
+  display: flex;
+}
+
+.mp{
+    height: 100%;
+    width: 99.9%;
+}

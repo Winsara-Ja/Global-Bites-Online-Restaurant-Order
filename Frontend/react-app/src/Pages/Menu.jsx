@@ -5,6 +5,8 @@ import "./Menu.css";
 import Header from "../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
 const Menu = () => {
   const { currentUser, loading, error } = useSelector((state) => state.user);
@@ -16,6 +18,7 @@ const Menu = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [priceRange, setPriceRange] = useState({ min: "", max: "" });
   const userID = currentUser._id;
+  const navigate = useNavigate()
 
   useEffect(() => {
     axios
@@ -36,6 +39,7 @@ const Menu = () => {
 
   const AddToCart = async (item) => {
     const { _id, itemName, image, Description, Price } = item;
+
     try {
       await axios.post("http://localhost:5000/addtocart", {
         userID,
@@ -110,6 +114,37 @@ const Menu = () => {
     setFilteredItems(filteredItemsByPriceRange);
   };
 
+  const handleImageClick = async(id) => {
+    navigate("/singleItem/" + id)
+  }
+
+  const renderStars = (rating) => {
+    const filledStars = Math.floor(rating); // Round down the rating to the nearest integer
+    const hasHalfStar = rating % 1 !== 0; // Check if there's a decimal part
+  
+    const stars = [];
+  
+    // Render filled stars
+    for (let i = 0; i < filledStars; i++) {
+        stars.push(<FaStar key={i} color="gold" />);
+    }
+  
+    // Render half-filled star if there's a decimal part and it's the first encountered
+    if (hasHalfStar) {
+        stars.push(<FaStarHalfAlt key={filledStars} color="gold" />);
+    }
+  
+    // Calculate the number of empty stars
+    const emptyStars = 5 - filledStars - (hasHalfStar ? 1 : 0);
+  
+    // Render empty stars
+    for (let i = 0; i < emptyStars; i++) {
+        stars.push(<FaStar key={filledStars + i + (hasHalfStar ? 1 : 0)} color="grey" />);
+    }
+  
+    return stars;
+} 
+
   return (
     <>
       <Header />
@@ -173,25 +208,29 @@ const Menu = () => {
               <div className="wrapper">
                 <div className="product-info">
                   <div className="product-text">
-                    <h1>{item.itemName}</h1>
-                    <h2>{item.itemId}</h2>
+                    <h1 onClick={() => handleImageClick(item._id)}>{item.itemName}</h1>
+                    <div className='avg-rating'>{renderStars(item.averageRating)}</div>
                   </div>
                   <div className="menu-img2">
                     <img
                       src={"http://localhost:5000/" + item.image}
                       alt={item.itemName}
                       className="menu-image"
+                      onClick={() => handleImageClick(item._id)}
                     />
                   </div>
-                  <div className="product-text2">
-                    <p>{item.Description}</p>
-                  </div>
                   <div className="price">Rs.{item.Price}</div>
-                  <div className="product-price-btn">
-                    <button type="button" onClick={() => AddToCart(item)}>
-                      Add To Cart
-                    </button>
-                  </div>
+                  {item.availability === "not-available" ? (
+                    <div className="not-available-msg">
+                      <p>Not Available</p>
+                    </div>
+                  ) : (
+                    <div className="product-price-btn">
+                      <button type="button" onClick={() => AddToCart(item)}>
+                        Add To Cart
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

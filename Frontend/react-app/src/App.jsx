@@ -63,6 +63,12 @@ import DisplayCaterngMenu from "./Pages/Catering-Management/DisplayCateringMenu.
 import UpdateCateringItem from "./Pages/Catering-Management/EditCateringMenu.jsx";
 import MyCatering from "./components/myCatering.jsx";
 import Faq from "./components/Faq.jsx";
+import SingleMenuItem from "./Pages/SingleMenuItem.jsx";
+import Locationo1 from "./components/Locations/Locationo1";
+import Locationo2 from "./components/Locations/Locationo2";
+import Locationo3 from "./components/Locations/Locationo3";
+import Locationo4 from "./components/Locations/Locationo4";
+import Location5 from "./components/Locations/Location5";
 
 //import AdminHome from "./Components/Delivery/AdminHome";
 
@@ -87,6 +93,7 @@ function App() {
         <Route path="/order" element={<Order />}></Route>
         <Route path="/addItems" element={<AddItems />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/singleItem/:id" element={<SingleMenuItem />} />
         <Route path="/manageMenu" element={<DisplayMenu />} />
         <Route path="/updateMenu/:id" element={<EditItems />} />
         <Route path="/offers" element={<Offers />} />
@@ -159,6 +166,11 @@ function App() {
         ></Route>
         <Route path="/myCatering" element={<MyCatering />} />
         <Route path="/Faq" element={<Faq />} />
+        <Route path="/location1" element={<Locationo1 />} />
+        <Route path="/location2" element={<Locationo2 />} />
+        <Route path="/location3" element={<Locationo3 />} />
+        <Route path="/location4" element={<Locationo4 />} />
+        <Route path="/location5" element={<Location5 />} />
       </Routes>
     </UserContextProvider>
   );
