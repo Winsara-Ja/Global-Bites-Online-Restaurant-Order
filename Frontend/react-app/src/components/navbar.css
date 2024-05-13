@@ -356,3 +356,12 @@
   .space {
     margin-top: 20px;
   }
+
+  .navimg {
+    width: 48px;
+    margin-right: 10px;
+  }
+
+  i {
+    color: whitesmoke;
+  }

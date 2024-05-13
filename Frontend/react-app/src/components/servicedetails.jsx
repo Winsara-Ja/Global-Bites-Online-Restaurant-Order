@@ -3,6 +3,7 @@ import axios from "axios";
 import { useReactToPrint } from "react-to-print";
 import "./servicedetails.css";
 import ManagerHeader from "../Pages/Managers/ManagerHeader";
+import NavBar from "./Navbar";
 
 function Servicedetails() {
   const componentPDF = useRef();
@@ -55,7 +56,7 @@ function Servicedetails() {
 
   return (
     <>
-      <ManagerHeader />
+      <NavBar />
       <div className="emptyspace1"></div>
       <div className="showoservices">
         <div className="searchbtn">

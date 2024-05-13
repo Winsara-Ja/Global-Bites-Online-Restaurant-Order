@@ -1,14 +1,14 @@
 import React from "react";
 import "./MenuandOffer.css";
 import { Link } from "react-router-dom";
-import ManagerHeader from "./ManagerHeader";
 import offer from "../../assets/offer_management.jpeg";
 import menu from "../../assets/menu.png";
+import NavBar from "../../components/Navbar";
 
 const MenuandOffer = () => {
   return (
     <>
-      <ManagerHeader />
+      <NavBar />
       <div className="menu-offer-container1">
         <div className="menu-container">
           <Link to="/manageMenu">

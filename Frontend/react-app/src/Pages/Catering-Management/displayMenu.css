@@ -52,7 +52,7 @@ th {
 
 /* Style for table cells */
 td {
-  border: 1px solid #5f5f5f;
+  border: 1px solid #afafaf;
   padding: 8px;
   align-items: center;
   justify-content: center;
@@ -61,7 +61,7 @@ td {
 
 /* Style for table rows */
 tr:nth-child(even) {
-  background-color: #9a9a9a;
+  background-color: #cecece;
 }
 
 /* Style for image */

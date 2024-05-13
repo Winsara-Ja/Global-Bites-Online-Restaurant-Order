@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ManagerHeader from "./Managers/ManagerHeader";
 import { StyleSheet } from "@react-pdf/renderer";
 import { useDispatch, useSelector } from "react-redux";
+import NavBar from "../components/Navbar";
 import "./history.css";
 
 const styles = StyleSheet.create({
@@ -144,7 +145,7 @@ const UserManagement = () => {
 
   return (
     <>
-      <ManagerHeader />
+      <NavBar />
       <div className="card">
         <div className="cart">
           <div className="title">

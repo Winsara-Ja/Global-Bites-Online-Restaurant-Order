@@ -179,6 +179,16 @@ try{
   
 };
 
+const getUserCatering = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const data = await Catering.find({ UserID: id });
+    res.json(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   getCatering,
   createCatering,
@@ -186,6 +196,7 @@ module.exports = {
   deleteCatering,
   getCateringMenu,
   getCount,
+  getUserCatering,
   getUser,
   getAllItems,
     getSingleItem,

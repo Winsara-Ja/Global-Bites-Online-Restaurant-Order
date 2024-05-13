@@ -61,6 +61,7 @@ import Item from "./components/Inventory/Item";
 import AddCateringMenu from "./Pages/Catering-Management/AddCateringMenu.jsx"
 import DisplayCaterngMenu from "./Pages/Catering-Management/DisplayCateringMenu.jsx";
 import UpdateCateringItem from "./Pages/Catering-Management/EditCateringMenu.jsx";
+import MyCatering from "./components/myCatering.jsx";
 //import AdminHome from "./Components/Delivery/AdminHome";
 
 axios.defaults.withCredentials = true;
@@ -148,6 +149,7 @@ function App() {
         <Route path="/AddCateringMenu" element={<AddCateringMenu/>}></Route>
         <Route path="/DispalyCateringMenu" element={<DisplayCaterngMenu/>}></Route>
         <Route path="/UpdateCateringItem" element={<UpdateCateringItem/>}></Route>
+        <Route path="/myCatering" element={<MyCatering />} />
       </Routes>
     </UserContextProvider>
   );

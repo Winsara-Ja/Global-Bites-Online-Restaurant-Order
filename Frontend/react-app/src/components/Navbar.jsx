@@ -7,7 +7,7 @@ function NavBar() {
     <div id="nav-bar">
       <input id="nav-toggle" type="checkbox" />
       <div id="nav-header">
-        <a id="nav-title" className='navbar-header'>
+        <a id="nav-title" className='navbar-header' href='/adminhome'>
           Global Bites
         </a>
         <label htmlFor="nav-toggle">
@@ -17,37 +17,36 @@ function NavBar() {
       </div>
       <div id="nav-content">
         <div className="nav-button">
-          <i className="fas fa-palette"></i>
-          <span>Order Management</span>
-          <FontAwesomeIcon icon="fa-solid fa-arrow-up" style={{color: "#FFD43B",}} />
+          <i className="fas fa-palette"><a href='/manager/orderdashboard'>O</a></i>
+          <span><a href='/manager/orderdashboard'>Order Management</a></span>
         </div>
         <div className="nav-button">
-          <i className="fas fa-images"></i>
-          <span>User Management</span>
+          <i className="fas fa-images">U</i>
+          <span><a href='/manager/userdashboard'>User Management</a></span>
         </div>
         <div className="nav-button">
-          <i className="fas fa-thumbtack"></i>
-          <span>Customer & Feedback</span>
+          <i className="fas fa-thumbtack">F</i>
+          <span><a href='/manager/orderdashboard'>Customer & Feedback</a></span>
         </div>
         <div className="nav-button">
-          <i className="fas fa-heart"></i>
-          <span>Menu Management</span>
+          <i className="fas fa-heart">M</i>
+          <span><a href='/manager/menuDashboard'>Menu Management</a></span>
         </div>
         <div className="nav-button">
-          <i className="fas fa-chart-line"></i>
-          <span>Delivery Management</span>
+          <i className="fas fa-chart-line">D</i>
+          <span><a href='/manager/orderdashboard'>Delivery Management</a></span>
         </div>
         <div className="nav-button">
-          <i className="fas fa-fire"></i>
-          <span>Catering Management</span>
+          <i className="fas fa-fire">C</i>
+          <span><a href='/details'>Catering Management</a></span>
         </div>
         <div className="nav-button">
-          <i className="fas fa-magic"></i>
-          <span>Inventory Management</span>
+          <i className="fas fa-magic">I</i>
+          <span><a href='/manager/orderdashboard'>Inventory Management</a></span>
         </div>
         <div className="nav-button">
-          <i className="fas fa-gem"></i>
-          <span>Payment Management</span>
+          <i className="fas fa-gem">P</i>
+          <span><a href='/manager/orderdashboard'>Payment Management</a></span>
         </div>
         <div id="nav-content-highlight"></div>
       </div>

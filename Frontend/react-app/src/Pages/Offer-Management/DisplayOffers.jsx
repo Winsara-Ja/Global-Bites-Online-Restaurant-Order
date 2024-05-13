@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./DisplayOffers.css";
-import ManagerHeader from "../Managers/ManagerHeader";
+import NavBar from "../../components/Navbar";
 
 const DisplayOffers = () => {
   const [offers, setOffers] = useState([]);
@@ -32,7 +32,7 @@ const DisplayOffers = () => {
 
   return (
     <>
-      <ManagerHeader />
+      <NavBar />
       <div className="offers2">MANAGE Offers</div>
       <div className="add-button-container">
         <h3>Add Offers Here</h3>

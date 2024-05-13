@@ -1,11 +1,11 @@
-.card {
+.card1 {
   margin: auto;
   border: transparent;
   display: flex;
   justify-content: space-between;
 }
 
-.cart {
+.cart1 {
   background-color: #fcfcfc;
   padding: 3vh;
   width: 70%;

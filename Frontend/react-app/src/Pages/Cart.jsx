@@ -13,12 +13,21 @@ const Cart = () => {
   const userID = currentUser._id;
   const UserName = currentUser.username;
   const [cartItems, setCartItems] = useState([]);
+  const [Discount, setDiscount] = useState('');
+  const [offers, setOffers] = useState([]);
+  const [T, setT] = useState(0);
+  const [O, setO] = useState(0);
   const navigate = useNavigate();
   let Total = 0;
   useEffect(() => {
     axios
       .get("http://localhost:5000/cart/" + userID)
       .then((cartItems) => setCartItems(cartItems.data))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:5000/offers")
+      .then((offers) => setOffers(offers.data))
       .catch((err) => console.log(err));
   }, [cartItems]);
 
@@ -79,12 +88,29 @@ const Cart = () => {
     ({ ItemPrice, Quantity }) => (Total = Total + ItemPrice * Quantity)
   );
 
+
+  const calculateDiscount = () => {
+    let discount = 0;
+    offers.map((offer) => {
+      if (offer.promoCode === Discount) {
+        discount = Total * (offer.discount / 100);
+          setO(discount);
+          setT(Total - discount);
+      }
+      else {
+        setO(0);
+        setT(Total);
+      }
+    });
+    };
+
+
   return (
     <>
       <Header />
       <div className="emptyspace"></div>
-      <div className="card">
-        <div className="cart">
+      <div className="card1">
+        <div className="cart1">
           <div className="title">
             <div className="row">
               <div className="col">
@@ -167,9 +193,12 @@ const Cart = () => {
           <hr />
           <div className="row">
             <div className="text-right1">Do you have a Promo Code</div>
-            <input className="promo"></input>
+            <input
+              className="promo"
+              onChange={(e) => setDiscount(e.target.value)}
+            />
             <span>
-              <button className="apply">Apply</button>
+              <button className="apply" onClick={() => calculateDiscount()}>Apply</button>
             </span>
           </div>
           <hr className="hr" />
@@ -183,14 +212,14 @@ const Cart = () => {
               <div>TBD</div>
             </div>
             <div className="taxes">
-              <div>Taxes</div>
-              <div>TBD</div>
+              <div>Offers</div>
+              <div>{O}</div>
             </div>
           </div>
           <hr className="hr" />
           <div className="estimated-total">
             <div>ESTIMATED TOTAL</div>
-            <div>Rs. {Total}</div>
+            <div>Rs. {T}</div>
           </div>
           <hr className="hr" />
           <div className="checkout-btn">

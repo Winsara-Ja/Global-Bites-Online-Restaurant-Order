@@ -16,19 +16,20 @@ function AddService() {
   const [headcount, setHeadcount] = useState("");
   const [request, setRequest] = useState("");
   const [click, setClick] = useState(false);
-  const [cateringMenu, setCateringMenu] = useState([])
-  const [total, setTotal] = useState(0)
+  const [cateringMenu, setCateringMenu] = useState([]);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/cateringMenu")
-    .then((cateringMenu) => setCateringMenu(cateringMenu.data))
-    .catch((err) => console.log(err));
-  }, [cateringMenu])
+    axios
+      .get("http://localhost:5000/cateringMenu")
+      .then((cateringMenu) => setCateringMenu(cateringMenu.data))
+      .catch((err) => console.log(err));
+  }, [cateringMenu]);
 
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      if(click) {
+      if (click) {
         await axios.post("http://localhost:5000/create/catering", {
           userID,
           UserName,
@@ -41,8 +42,8 @@ function AddService() {
         });
         alert("your details added now!");
       }
-      if(!click) {
-        alert("Please Select a Menu")
+      if (!click) {
+        alert("Please Select a Menu");
       }
     } catch (error) {
       console.log(error);
@@ -53,10 +54,10 @@ function AddService() {
     setId(e.target.id);
     setClick(!click);
     cateringMenu.map((menu) => {
-      if(menu.MenuID == e.target.id) {
-        setTotal(headcount * menu.TotalPrice)
+      if (menu.MenuID == e.target.id) {
+        setTotal(headcount * menu.TotalPrice);
       }
-    })
+    });
   };
 
   // const calculateTotal = (e) => {
@@ -98,7 +99,12 @@ function AddService() {
           <br></br>
           {/* <lable>Headcount:</lable> */}
           <p>Headcount</p>
-          <input type="number" onChange={(e) => setHeadcount(e.target.value)} className="headcount" required/>
+          <input
+            type="number"
+            onChange={(e) => setHeadcount(e.target.value)}
+            className="headcount"
+            required
+          />
           <br></br>
           {/* <lable>Headcount:</lable> */}
           <p>Special Requset</p>
@@ -114,49 +120,60 @@ function AddService() {
         </form>
         <br></br>
         <div className="cateringtotal">Total: {total}</div>
+        <hr className="separator"></hr>
+        <a href="/myCatering">
+          <div className="cateringbtn">My Caterings</div>
+        </a>
       </div>
       <div className="w">
         <div className="catering-menu">
           {cateringMenu.map((menu) => {
             return (
-            <>
-            <div className="item3">
-            <div className="wrapper3">
-              <div
-                className={`product-info3 ${
-                  click && id == "1" ? "selected" : "select"
-                }`}
-              >
-                <div className="product-text">
-                  <h1>Menu No: {menu.MenuID}</h1>
+              <>
+                <div className="item3">
+                  <div className="wrapper3">
+                    <div
+                      className={`product-info3 ${
+                        click && id == "1" ? "selected" : "select"
+                      }`}
+                    >
+                      <div className="product-text">
+                        <h1>Menu No: {menu.MenuID}</h1>
+                      </div>
+                      <div className="menu-img3">
+                        <img className="menu-image" src={menu.image} />
+                      </div>
+                      <div className="product-text2">
+                        <p>{menu.Description}</p>
+                      </div>
+                      <div className="product-text2">
+                        <div className="bold">Menu Items</div>
+                        {menu.MenuItems.map((items) => {
+                          return (
+                            <>
+                              <p>{items.ItemName}</p>
+                            </>
+                          );
+                        })}
+                      </div>
+                      <div className="price">
+                        Per Person Rs.{menu.TotalPrice}
+                      </div>
+                      <div className="product-price-btn">
+                        <button
+                          type="button"
+                          id={menu.MenuID}
+                          onClick={(e) => handel(e)}
+                        >
+                          {click && id == menu.MenuID ? "Selected" : "Select"}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="menu-img3">
-                  <img className="menu-image" src={menu.image} />
-                </div>
-                <div className="product-text2">
-                  <p>{menu.Description}</p>
-                </div>
-                <div className="product-text2">
-                  <div className="bold">Menu Items</div>
-                  {menu.MenuItems.map((items) => {
-                      return (
-                        <>
-                        <p>{items.ItemName}</p>
-                        </>
-                      )
-                  })}
-                </div>
-                <div className="price">Per Person Rs.{menu.TotalPrice}</div>
-                <div className="product-price-btn">
-                  <button type="button" id={menu.MenuID} onClick={(e) => handel(e)}>
-                    {click && id == menu.MenuID ? "Selected" : "Select"}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-            </>)
-          } )}
+              </>
+            );
+          })}
         </div>
       </div>
       <Footer />
