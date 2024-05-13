@@ -7,6 +7,7 @@ import { Calendar } from "react-date-range";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import ManagerHeader from "./ManagerHeader";
+import NavBar from "../../components/Navbar";
 
 const OrderDashboard = () => {
   const [orderItems, setOrderItems] = useState([]);
@@ -127,7 +128,8 @@ const OrderDashboard = () => {
 
   return (
     <>
-      <ManagerHeader></ManagerHeader>
+      {/* <ManagerHeader></ManagerHeader> */}
+      <NavBar />
       <div className="searchbox">
         <p className="search-orders">Search</p>
         <input
@@ -191,6 +193,7 @@ const OrderDashboard = () => {
                         return (
                           <div className="order-summary">
                             <div className="itemname">{item.ItemName}</div>
+                            <p className="itemname">x</p>
                             <div className="itemquantity">{item.Quantity}</div>
                           </div>
                         );

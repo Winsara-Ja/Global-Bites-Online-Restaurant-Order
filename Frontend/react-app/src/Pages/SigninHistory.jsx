@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ManagerHeader from "./Managers/ManagerHeader";
+import NavBar from "../components/Navbar";
 import "./history.css";
 import {
   PDFDownloadLink,
@@ -130,7 +131,7 @@ const History = () => {
 
   return (
     <>
-      <ManagerHeader />
+      <NavBar />
       <div className="card">
         <div className="cart">
           <div className="title">

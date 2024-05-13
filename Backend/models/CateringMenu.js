@@ -4,6 +4,7 @@ const cateringMenu = mongoose.Schema({
     MenuID: String,
     image: String,
     Description: String,
+    Country: String,
     MenuItems: [
         {
             ItemName: String

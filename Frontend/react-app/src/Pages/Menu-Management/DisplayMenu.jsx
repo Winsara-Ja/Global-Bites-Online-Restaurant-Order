@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./displayMenu.css";
-import ManagerHeader from "../Managers/ManagerHeader";
+import NavBar from "../../components/Navbar";
 
 const DisplayMenu = () => {
   const [items, setItems] = useState([]);
@@ -37,7 +37,7 @@ const DisplayMenu = () => {
 
   return (
     <>
-      <ManagerHeader />
+      <NavBar />
       <div className="menuItems">MANAGE MENU ITEMS</div>
       <div className="add-button-container">
         <h1>Add Items Here!</h1>

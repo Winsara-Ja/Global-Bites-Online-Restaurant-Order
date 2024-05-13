@@ -3,7 +3,7 @@ import "./AdminHome.css";
 import { manager_list } from "../assets/assets";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import ManagerHeader from "../Pages/Managers/ManagerHeader";
+import NavBar from "../components/Navbar";
 
 const AdminHome = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -11,7 +11,8 @@ const AdminHome = () => {
     <>
       {currentUser.isAdmin ? (
         <>
-          <ManagerHeader />
+          <NavBar />
+          <div className="adhome">
           <div className="manager-list">
             {manager_list.map((manager, index) => (
               <Link
@@ -28,12 +29,14 @@ const AdminHome = () => {
               </Link>
             ))}
           </div>
+          </div>
         </>
       ) : (
         <>
           <h1 className="notAthorized">Not Athorized</h1>
         </>
       )}
+      
     </>
   );
 };

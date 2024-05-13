@@ -4,7 +4,7 @@ const Offer = mongoose.Schema({
     offerId: String,
     offerName: String,
     promoCode: String,
-    discount: String,
+    discount: Number,
     image: String
   },{
     timestamps : true

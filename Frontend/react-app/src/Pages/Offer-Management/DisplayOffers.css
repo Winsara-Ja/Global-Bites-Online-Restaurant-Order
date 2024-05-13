@@ -36,6 +36,8 @@
 /* Style for the table */
 .table-container {
   margin-top: 20px;
+  width: 90%;
+  margin-left: 120px;
 }
 
 table {

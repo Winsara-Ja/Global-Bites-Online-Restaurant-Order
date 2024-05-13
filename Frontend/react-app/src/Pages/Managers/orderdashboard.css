@@ -147,8 +147,10 @@
 .hr-bar {
   width: 85%;
   height: 80px;
-  background-color: rgb(223, 223, 219);
+  background-color: #18283b;
   margin: auto;
+  border-radius: 4px;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
