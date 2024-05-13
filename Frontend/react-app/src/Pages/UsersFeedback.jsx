@@ -58,14 +58,15 @@ function UsersFeedback() {
       <div className="FBUser">
         <div className="FBnew">
             <div className="FBdesign">
+              <br></br>
             <h1 className='UserFB'>Users Feedbacks</h1>
                 <table className="FBtable">
                     <thead className="FBHead">
                         <tr>
-                            <th className="px-6 py-3 text-left">Name</th>
-                            <th className="px-6 py-3 text-left">Email</th>
-                            <th className="px-6 py-3 text-left">Feedback</th>
-                            <th className="px-6 py-3 text-center">Action</th>
+                            <th className="FBHeadtable">Name</th>
+                            <th className="FBHeadtable">Email</th>
+                            <th className="FBHeadtable">Feedback</th>
+                            <th className="FBHeadtable">Action</th>
                         </tr>
                     </thead>
                     <tbody className="FBbody">
