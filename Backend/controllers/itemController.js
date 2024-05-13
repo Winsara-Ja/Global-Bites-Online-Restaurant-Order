@@ -20,12 +20,17 @@ const getSingleItem = async (req, res) => {
     }
   }; 
 
-const createItem = async (req, res) => {
+  const createItem = async (req, res) => {
     try {
-        const { itemId, itemName, Description, Price, category, country } = req.body
+        const { itemId, itemName, Description, Price, category, country } = req.body;
         const image = req.file ? req.file.filename : null;
-        const availability = "available"
-        const averageRating = 0
+        const availability = "available";
+        const averageRating = 0;
+
+        const existingItem = await Items.findOne({ $or: [{ itemName: itemName }, { itemId: itemId }] });
+        if (existingItem) {
+            return res.status(400).json({ success: false, message: "Item already exists", exists: true });
+        }
 
         const newItem = new Items({
             itemId: itemId,
@@ -37,15 +42,15 @@ const createItem = async (req, res) => {
             image: image,
             availability: availability,
             averageRating: averageRating
-        })
+        });
 
-        await newItem.save()
+        await newItem.save();
 
-        res.json({ success: true, message: "Data saved successfully", data: newItem })
+        res.json({ success: true, message: "Data saved successfully", data: newItem });
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message })
+        res.status(500).json({ success: false, message: error.message });
     }
-}
+};
 
 const deleteItem = async (req, res) => {
   try{

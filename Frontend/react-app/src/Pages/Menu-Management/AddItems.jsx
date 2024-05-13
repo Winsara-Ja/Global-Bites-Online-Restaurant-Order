@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { ImUpload } from "react-icons/im";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast"
 
 const AddItems = () => {
   const [image, setImage] = useState("");
@@ -45,20 +46,27 @@ const AddItems = () => {
     form.append("image", image); // Append the image file
 
     try {
-      const response = await axios.post("http://localhost:5000/create", form, {
-        headers: {
-          "Content-Type": "multipart/form-data", // Ensure proper content type for file uploads
-        },
-      });
-      navigate("/manageMenu");
-      console.log(response);
-      if (response.data.success) {
-        alert(response.data.message);
-      }
+        const response = await axios.post("http://localhost:5000/create", form, {
+            headers: {
+                "Content-Type": "multipart/form-data", // Ensure proper content type for file uploads
+            },
+        });
+        if (response.data.success) {
+            console.log("Success:", response.data.message);
+            alert(response.data.message);
+            navigate("/manageMenu");
+        } else {
+            console.log("Failure:", response.data.message);
+            if (response.data.exists) {
+                toast(response.data.message);
+            } else {
+                console.error("Error:", response.data.message);
+            }
+        }
     } catch (error) {
-      console.error("Error:", error);
+        console.error("Error:", error);
     }
-  };
+};
 
   return (
     <div className="add-item-container">
