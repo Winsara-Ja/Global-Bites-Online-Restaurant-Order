@@ -71,6 +71,7 @@ import Locationo4 from "./components/Locations/Locationo4";
 import Location5 from "./components/Locations/Location5";
 
 //import AdminHome from "./Components/Delivery/AdminHome";
+//fixed errors
 
 axios.defaults.withCredentials = true;
 
