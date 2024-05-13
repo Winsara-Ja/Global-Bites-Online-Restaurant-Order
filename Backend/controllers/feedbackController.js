@@ -38,8 +38,8 @@ const deleteFeedback = (req,res) => {
 }
 
 const createFeedback = (req,res) => {
-    const {name, userId, email, feedback} = req.body
-    UserModel.create({name, userId, email, feedback})
+    const {name, userId, email, feedback, item} = req.body
+    UserModel.create({name, userId, email, feedback, item})
     .then(feedbacks => res.json(feedbacks))
     .catch(err => res.json(err))
 }

@@ -5,15 +5,18 @@
 
 .FBpage{
     margin-top: 6.2rem;
-    margin-left: 30%;
+    margin-left: 50px;
     box-sizing: border-box;
     transform: translate(-50% -50%);
+    position: absolute;
+    top: 20px;
+    border-radius: 6px;
 }
 
 .FBpage{
     width: 40%;
 	padding: 35px;
-	background: rgb(165, 164, 158);
+	background: rgb(210, 205, 177);
 }
 
 .FBtitlet{
@@ -30,6 +33,7 @@
     
     font-family: sans-serif;
     font-weight: bold;
+    margin-top:120px;
     color: rgb(50, 44, 44);
     font-size: 24px;
     text-size-adjust: 20px;
@@ -38,7 +42,7 @@
 .FBbox{
     width: 100%;
     padding: 7px;
-    margin-top:18px;
+    margin-top:20px;
     margin-bottom:40px;
     color: #000000;
     background-color: #ffffff;
@@ -148,7 +152,19 @@
 }
 
 .myfeed-btn{
-    width: 100px;
+    width: 160px;
     height: 45px;
     background-color: gold;
+    margin-top: 120px;
+}
+
+.comentsection{
+
+    width: 50%;
+    margin-left: 46%;
+}
+
+.mycomments {
+    display: flex;
+    justify-content: space-between;
 }
