@@ -31,8 +31,17 @@
   background-color: #010101;
   color: #fffffffb;
 }
-
-/* Style for the table */
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.search-container input {
+  height: 35px;
+  width: 700px;
+  border: 1px solid black;
+  margin-top: 20px;
+}
 .table-container {
   margin-top: 20px;
 }
@@ -91,22 +100,10 @@
   color: #fffffffb;
 }
 .table-container table td select{
-  background-color: #fffb0be8;
+  background-color: #5d5d5de8;
   color: #010101;
   font-family: "JetBrains Mono", monospace;
   font-weight: 800;
   height: 40px;
   width: 80%;
-}
-
-.search-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-.search-container input {
-  height: 35px;
-  width: 700px;
-  border: 1px solid black;
-  margin-top: 20px;
 }

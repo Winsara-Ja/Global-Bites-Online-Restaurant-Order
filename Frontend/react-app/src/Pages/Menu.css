@@ -64,6 +64,13 @@ body {
   overflow: hidden;
 }
 
+.product-text .avg-rating{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
 .product-text2 p {
   margin: 10px;
   text-align: center;

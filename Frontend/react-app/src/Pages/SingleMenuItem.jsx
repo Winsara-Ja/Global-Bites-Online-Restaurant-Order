@@ -95,7 +95,7 @@ const SingleMenuItem = () => {
 
   const renderStars = (rating) => {
     const filledStars = Math.floor(rating); // Round down the rating to the nearest integer
-    const hasHalfStar = rating % 1 !== 0; // Check if there's a decimal part
+    const hasHalfStar = rating % 1 !== 0;
   
     const stars = [];
   
@@ -104,15 +104,19 @@ const SingleMenuItem = () => {
         stars.push(<FaStar key={i} color="gold" />);
     }
   
-    // Render half-filled star if there's a decimal part and it's the first encountered
     if (hasHalfStar) {
+      const decimalPoint = rating % 1
+      if(decimalPoint < 0.5){
         stars.push(<FaStarHalfAlt key={filledStars} color="gold" />);
+      }
+      else{
+        stars.push(<FaStar key={i} color="gold" />);
+      } 
+        
     }
 
-    // Calculate the number of empty stars
     const emptyStars = 5 - filledStars - (hasHalfStar ? 1 : 0);
   
-    // Render empty stars
     for (let i = 0; i < emptyStars; i++) {
         stars.push(<FaStar key={filledStars + i + (hasHalfStar ? 1 : 0)} color="grey" />);
     }
@@ -144,21 +148,24 @@ const SingleMenuItem = () => {
               // Allow user to rate the item
               <div className='rating'>
                 <StarRate value={rating} onChange={handleRatingChange} />
-                <button onClick={saveRating}>Save Rating</button>
+                <button className="rating-btn"onClick={saveRating}>Save Rating</button>
               </div>
             )}
-            {itemData.availability === 'not-available' ? (
-              <div className='not-available-msg'>
-                <p>Not Available</p>
-              </div>
-            ) : (
-              <div className='product-price-btn'>
-                <button type='button' onClick={() => AddToCart(itemData)}>
-                  Add To Cart
-                </button>
-              </div>
-            )}
+            
           </div>
+        </div>
+        <div className="cart-btn-container">
+          {itemData.availability === 'not-available' ? (
+            <div className='not-available-msg'>
+              <p>Not Available</p>
+            </div>
+          ) : (
+            <div className='add-to-cart-btn'>
+              <button type='button' onClick={() => AddToCart(itemData)}>
+                Add To Cart
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </>

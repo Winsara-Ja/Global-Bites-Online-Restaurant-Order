@@ -131,7 +131,13 @@ const Menu = () => {
   
     // Render half-filled star if there's a decimal part and it's the first encountered
     if (hasHalfStar) {
+      const decimalPoint = rating % 1
+      if(decimalPoint < 0.5){
         stars.push(<FaStarHalfAlt key={filledStars} color="gold" />);
+      }
+      else{
+        stars.push(<FaStar key={i} color="gold" />);
+      } 
     }
   
     // Calculate the number of empty stars

@@ -70,7 +70,13 @@ const EditItems = () => {
         <input type="number" id="Price" name="Price" onChange={handleOnChange} value={itemData.Price} required/>
 
         <label htmlFor="Description">Item Description : </label>
-        <input type="text" id="Description" name="Description" onChange={handleOnChange} value={itemData.Description} required/>
+        <textarea
+          id="Description"
+          name="Description"
+          onChange={handleOnChange}
+          value={itemData.Description}
+          required
+        />
 
         <label htmlFor="category">Item Category:</label>
               <select id="category" name="category" onChange={handleOnChange} value={itemData.category}>
@@ -91,7 +97,7 @@ const EditItems = () => {
             </select>
 
         <div className="food-image-container">
-          <img src={`http://localhost:5000/${itemData.image}`} alt="Food" />
+          <img src={`http://localhost:5000/${itemData.image}`} alt={itemData.itemName} />
         </div>
         <div className="button-container">
           <button className="btn">Update</button>
