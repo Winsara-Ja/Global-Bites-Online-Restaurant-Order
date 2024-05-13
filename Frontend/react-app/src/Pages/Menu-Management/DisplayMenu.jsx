@@ -30,7 +30,7 @@ const DisplayMenu = () => {
     navigate("/addItems");
   };
 
-  //search items
+  //search items in the database
   const filteredItems = items.filter((item) =>
     item.itemName.toLowerCase().includes(searchQuery.toLowerCase())
   );
