@@ -45,7 +45,7 @@ const EditItems = () => {
 
       const response = await axios.put('http://localhost:5000/update/' + id, itemData)
       if(response.data.success){
-        navigate('/displayMenu')
+        navigate('/manageMenu')
         alert(response.data.message);  
       }
     } catch (error) {
