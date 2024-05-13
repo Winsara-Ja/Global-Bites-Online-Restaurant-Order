@@ -13,6 +13,7 @@ const DeliveryRoutes = require("./routes/DeliveryRoute.js");
 const PickupRoutes = require("./routes/PickupRoute.js");
 const CateringRoute = require("./routes/CateringRoute");
 const inventoryRoute = require("./routes/inventoryRoute.js");
+const ratingRoute = require("./routes/ratingRoute.js")
 const app = express();
 
 connectDB();
@@ -34,6 +35,7 @@ app.use("/", inventoryRoute);
 app.use("/signinhistory", signinHistoryRoutes);
 app.use("/deliveries", DeliveryRoutes);
 app.use("/pickups", PickupRoutes);
+app.use("/", ratingRoute)
 
 const port = 5000;
 
