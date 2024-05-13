@@ -10,7 +10,12 @@ const {
   resetPassword,
 } = require("../controllers/auth.controllers.js");
 
-router.use(cors());
+router.use(
+  cors({
+    credentials: true,
+    origin: "http://localhost:5173",
+  })
+);
 
 router.post("/signup", signup);
 router.post("/signin", signin);

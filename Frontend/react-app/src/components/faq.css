@@ -45,17 +45,17 @@ body {
   outline: none;
 }
 
-.accordion button:hover,
+.accordion button:hover,#ffe40b
 .accordion button:focus {
   cursor: pointer;
-  color: #03b5d2;
+  color: #ffe40b;
 }
 
 .accordion button:hover::after,
 .accordion button:focus::after {
   cursor: pointer;
-  color: #03b5d2;
-  border: 1px solid #03b5d2;
+  color: #ffe40b;
+  border: 1px solid #ffe40b;
 }
 
 .accordion button .accordion-title {
@@ -95,7 +95,7 @@ body {
 }
 
 .accordion button[aria-expanded='true'] {
-  color: #03b5d2;
+  color: #ffe40b;
 }
 .accordion button[aria-expanded='true'] .icon::after {
   width: 0;

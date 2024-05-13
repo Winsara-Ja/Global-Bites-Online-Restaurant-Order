@@ -65,6 +65,7 @@ import MyCatering from "./components/myCatering.jsx";
 import Faq from "./components/Faq.jsx";
 
 //import AdminHome from "./Components/Delivery/AdminHome";
+//fixed errors
 
 axios.defaults.withCredentials = true;
 

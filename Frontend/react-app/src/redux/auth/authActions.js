@@ -52,7 +52,7 @@ export const forgotPassword = createAsyncThunk(
       const emailString = email.email;
 
       const response = await fetch(
-        "http://localhost:3000/api/auth/forgotpassword",
+        "http://localhost:5000/forgotpassword",
         {
           method: "POST",
           headers: {
