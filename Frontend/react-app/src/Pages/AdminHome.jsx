@@ -12,7 +12,7 @@ const AdminHome = () => {
       {currentUser.isAdmin ? (
         <>
           <NavBar />
-          <div className="adhome">
+          {/* <div className="adhome">
           <div className="manager-list">
             {manager_list.map((manager, index) => (
               <Link
@@ -29,6 +29,10 @@ const AdminHome = () => {
               </Link>
             ))}
           </div>
+          </div> */}
+          <div className="adminhomediv">
+            <h1 className="gbh1">Global Bites</h1>
+            <h1 className="gbh2">Admin Home</h1>
           </div>
         </>
       ) : (
@@ -36,7 +40,6 @@ const AdminHome = () => {
           <h1 className="notAthorized">Not Athorized</h1>
         </>
       )}
-      
     </>
   );
 };

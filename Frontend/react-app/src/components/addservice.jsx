@@ -134,7 +134,7 @@ function AddService() {
                   <div className="wrapper3">
                     <div
                       className={`product-info3 ${
-                        click && id == "1" ? "selected" : "select"
+                        click && id == menu.MenuID ? "selected" : "select"
                       }`}
                     >
                       <div className="product-text">

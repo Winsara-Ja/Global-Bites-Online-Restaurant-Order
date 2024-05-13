@@ -75,7 +75,7 @@ const SignIn = () => {
           <div className="signin">-— or Sign in with —-</div>
           <span id="Signinbtn">
             <div id="customBtn">
-              <span className="icon"></span>
+              <span className="icon2"></span>
               <span className="buttonText">Google</span>
             </div>
             <div id="customBtn1">

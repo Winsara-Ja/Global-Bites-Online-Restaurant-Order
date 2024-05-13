@@ -13,7 +13,7 @@ const Cart = () => {
   const userID = currentUser._id;
   const UserName = currentUser.username;
   const [cartItems, setCartItems] = useState([]);
-  const [Discount, setDiscount] = useState('');
+  const [Discount, setDiscount] = useState("");
   const [offers, setOffers] = useState([]);
   const [T, setT] = useState(0);
   const [O, setO] = useState(0);
@@ -88,22 +88,20 @@ const Cart = () => {
     ({ ItemPrice, Quantity }) => (Total = Total + ItemPrice * Quantity)
   );
 
-
   const calculateDiscount = () => {
     let discount = 0;
     offers.map((offer) => {
-      if (offer.promoCode === Discount) {
+      offer.promoCode;
+      if (offer.promoCode == Discount) {
         discount = Total * (offer.discount / 100);
-          setO(discount);
-          setT(Total - discount);
-      }
-      else {
+        setO(discount);
+        setT(Total - discount);
+      } else {
         setO(0);
         setT(Total);
       }
     });
-    };
-
+  };
 
   return (
     <>
@@ -198,7 +196,9 @@ const Cart = () => {
               onChange={(e) => setDiscount(e.target.value)}
             />
             <span>
-              <button className="apply" onClick={() => calculateDiscount()}>Apply</button>
+              <button className="apply" onClick={() => calculateDiscount()}>
+                Apply
+              </button>
             </span>
           </div>
           <hr className="hr" />
@@ -209,7 +209,7 @@ const Cart = () => {
             </div>
             <div className="shipping">
               <div>Shipping</div>
-              <div>TBD</div>
+              <div>0</div>
             </div>
             <div className="taxes">
               <div>Offers</div>
@@ -219,7 +219,7 @@ const Cart = () => {
           <hr className="hr" />
           <div className="estimated-total">
             <div>ESTIMATED TOTAL</div>
-            <div>Rs. {T}</div>
+            <div>Rs. {T == 0 ? Total : T}</div>
           </div>
           <hr className="hr" />
           <div className="checkout-btn">

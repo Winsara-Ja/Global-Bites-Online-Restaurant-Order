@@ -99,8 +99,8 @@ const Profile = () => {
   return (
     <>
       <Header />
-      <div className='bg-cover bg-[url("/4.jpg")]  p-8 h- min-h-screen'>
-        <div className="mt-28"></div>
+      <div className='bg-cover bg-[url("/7.jpg")] h- min-h-screen'>
+        <div className="mt-24"></div>
         <div className="p-3 max-w-lg mx-auto bg-white rounded-2xl">
           <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>

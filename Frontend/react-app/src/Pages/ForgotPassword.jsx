@@ -20,7 +20,7 @@ const ForgotPassword = () => {
 
   return (
     <>
-      <div className='bg-cover bg-[url("/1.jpg")] bg-opacity-10 p-20 h-screen'>
+      <div className='bg-cover bg-[url("/8.jpg")] bg-opacity-10 p-20 h-screen'>
         <div className="p-5 max-w-lg mx-auto mb-20 bg-white  rounded-2xl">
           <h1 className="text-3xl text-center font-semibold my-7">
             Forgot Password

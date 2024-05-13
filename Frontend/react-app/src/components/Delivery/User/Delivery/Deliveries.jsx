@@ -1,9 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Header from "../../../Header/Header";
+import { useDispatch, useSelector } from "react-redux";
 import "./Deliveris.css";
 const Deliveries = () => {
+  const { currentUser, loading } = useSelector((state) => state.user);
+  const userID = currentUser._id;
+  const [orderItems, setOrderItems] = useState([]);
+  const [search, setSearch] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/orderItems/" + userID)
+      .then((orderItems) => {
+        setOrderItems(orderItems.data);
+        setSearch(orderItems.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   const [deliveries, setDeliveries] = useState([]);
   const [error, setError] = useState(null);
 
@@ -45,16 +60,16 @@ const Deliveries = () => {
             {deliveries.map((delivery) => (
               <div key={delivery._id}>
                 <div className="stats_box">
-                <p className="mantopic_detail_disply">
-                  <b>Request Accept : </b>
-                  {delivery.status ? delivery.status : "Pending"}
-                </p>
-                <p className="mantopic_detail_disply">
-                  <b>Order Resived : </b>
-                  {delivery.done ? delivery.done : "Not Yet"}
-                </p>
+                  <p className="mantopic_detail_disply">
+                    <b>Request Accept : </b>
+                    {delivery.status ? delivery.status : "Pending"}
+                  </p>
+                  <p className="mantopic_detail_disply">
+                    <b>Order Resived : </b>
+                    {delivery.done ? delivery.done : "Not Yet"}
+                  </p>
                 </div>
-              
+
                 <p className="mantopic_detail_disply">
                   <b>Location:</b>
                   {delivery.location}
@@ -63,6 +78,27 @@ const Deliveries = () => {
                   <b>Time:</b>
                   {delivery.time}
                 </p>
+                {search.map((orderItem) => {
+                  return (
+                    <>
+                      <div className="order-summary">
+                        {orderItem.ItemData.map((item) => {
+                          return (
+                            <div className="order-summary">
+                              <div className="itemname">{item.ItemName}</div>
+                              <div className="itemquantity">
+                                {item.Quantity}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      <div className="itemquantity">
+                        Rs.{orderItem.TotalPrice}
+                      </div>
+                    </>
+                  );
+                })}
 
                 <Link to={`/user_deliveries/update/${delivery._id}`}>
                   {" "}

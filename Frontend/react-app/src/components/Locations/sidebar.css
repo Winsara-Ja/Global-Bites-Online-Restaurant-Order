@@ -4,9 +4,9 @@
 }
 .sidebrbox {
   background-color: rgb(222, 224, 226);
-  width: 500px;
+  width: 450px;
   padding: 25px;
-  height: 80vh;
+  height: 90vh;
   display: block;
   position: fixed;
 }
@@ -22,8 +22,8 @@
 }
 .loc_topic {
   font-weight: 500;
-  font-size: 40px;
+  font-size: 30px;
 }
 .loc_adres {
-  font-size: 25px;
+  font-size: 15px;
 }
