@@ -58,10 +58,12 @@ import AddItem from "./components/AddItem/AddItem";
 import UpdateItem from "./components/UpdateItem/UpdateItem";
 import Items from "./components/Inventory/Items";
 import Item from "./components/Inventory/Item";
-import AddCateringMenu from "./Pages/Catering-Management/AddCateringMenu.jsx"
+import AddCateringMenu from "./Pages/Catering-Management/AddCateringMenu.jsx";
 import DisplayCaterngMenu from "./Pages/Catering-Management/DisplayCateringMenu.jsx";
 import UpdateCateringItem from "./Pages/Catering-Management/EditCateringMenu.jsx";
 import MyCatering from "./components/myCatering.jsx";
+import Faq from "./components/Faq.jsx";
+
 //import AdminHome from "./Components/Delivery/AdminHome";
 
 axios.defaults.withCredentials = true;
@@ -146,10 +148,17 @@ function App() {
         <Route path="/manager/inventory" element={<Items />} />
         <Route path="/items/:id" element={<Item />} />
         <Route path="/items/update/:id" element={<UpdateItem />} />
-        <Route path="/AddCateringMenu" element={<AddCateringMenu/>}></Route>
-        <Route path="/DispalyCateringMenu" element={<DisplayCaterngMenu/>}></Route>
-        <Route path="/UpdateCateringItem" element={<UpdateCateringItem/>}></Route>
+        <Route path="/AddCateringMenu" element={<AddCateringMenu />}></Route>
+        <Route
+          path="/DispalyCateringMenu"
+          element={<DisplayCaterngMenu />}
+        ></Route>
+        <Route
+          path="/UpdateCateringItem"
+          element={<UpdateCateringItem />}
+        ></Route>
         <Route path="/myCatering" element={<MyCatering />} />
+        <Route path="/Faq" element={<Faq />} />
       </Routes>
     </UserContextProvider>
   );

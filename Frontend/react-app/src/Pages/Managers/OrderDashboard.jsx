@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import emailjs from "@emailjs/browser";
 import "./orderdashboard.css";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { Calendar } from "react-date-range";
+import Swal from "sweetalert2";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 import ManagerHeader from "./ManagerHeader";
@@ -73,6 +75,25 @@ const OrderDashboard = () => {
         _id,
         status,
       });
+      // if (status == "Ready") {
+      //   emailjs
+      //     .sendForm("service_9oaccei", "template_5ra3pug", form.current, {
+      //       publicKey: "aRJqOCAhheNC2s_l7",
+      //     })
+      //     .then(
+      //       () => {
+      //         console.log("SUCCESS!");
+      //         Swal.fire({
+      //           title: "Good job!",
+      //           text: "You Email sent sucessfully !",
+      //           icon: "success",
+      //         });
+      //       },
+      //       (error) => {
+      //         console.log("FAILED...", error.text);
+      //       }
+      //     );
+      // }
     } catch (error) {
       console.log(error);
     }
@@ -124,6 +145,28 @@ const OrderDashboard = () => {
         max: 9,
       },
     },
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_9oaccei", "template_5ra3pug", form.current, {
+        publicKey: "aRJqOCAhheNC2s_l7",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          Swal.fire({
+            title: "Good job!",
+            text: "You Email sent sucessfully !",
+            icon: "success",
+          });
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
   };
 
   return (

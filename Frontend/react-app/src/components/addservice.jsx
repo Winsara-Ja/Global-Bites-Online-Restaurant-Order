@@ -121,7 +121,7 @@ function AddService() {
         <br></br>
         <div className="cateringtotal">Total: {total}</div>
         <hr className="separator"></hr>
-        <a href="/myCatering">
+        <a href="/myCatering" className="ca">
           <div className="cateringbtn">My Caterings</div>
         </a>
       </div>

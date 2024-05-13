@@ -133,6 +133,8 @@
 .dropdown-content {
   text-align: center;
   background-color: #cacac6;
+  z-index: 3;
+  position: relative;
 }
 
 .dropdown-item {
