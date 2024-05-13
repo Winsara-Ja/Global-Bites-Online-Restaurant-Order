@@ -42,52 +42,48 @@ const Order = () => {
           placeholder="Filter"
         ></input>
       </div>
-      <div className="order-header">
-        <div className="flex-item">OrderID</div>
-        <div className="flex-item">Items</div>
-        <div className="flex-item">Order Date</div>
-        <div className="flex-item">Price</div>
-        <div className="flex-item">Order Status</div>
-      </div>
-      <div>
-        {search.map((orderItem) => {
-          return (
-            <>
-              <div className="order-summary">
-                <div className="itemid">{orderItem._id}</div>
-                <div className="item-row">
-                  {orderItem.ItemData.map((item) => {
-                    return (
-                      <div className="order-summary">
-                        <div className="itemname">{item.ItemName}</div>
-                        <div className="itemquantity">{item.Quantity}</div>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="itemdate">
-                  {new Date(orderItem.createdAt).toLocaleString()}
-                </div>
-                <div className="itemquantity">Rs.{orderItem.TotalPrice}</div>
+      <br />
+      <table className="ordertable">
+        <thead>
+          <tr>
+            <th>OrderID</th>
+            <th>Items</th>
+            <th>Order Date</th>
+            <th>Price</th>
+            <th>Order Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {search.map((orderItem) => (
+            <tr key={orderItem._id}>
+              <td>{orderItem._id}</td>
+              <td>
+                {orderItem.ItemData.map((Items) => (
+                  <p>
+                    {Items.ItemName} x {Items.Quantity}
+                  </p>
+                ))}
+              </td>
+              <td>{new Date(orderItem.createdAt).toLocaleString()}</td>
+              <td>{orderItem.TotalPrice}</td>
+              <td>
                 <div
-                  className={`itemprice ${
-                    orderItem.PaymetStatus == "Ready"
-                      ? "itemprice-green"
-                      : orderItem.PaymetStatus == "Deleted"
-                      ? "itemprice-red"
-                      : "itemprice-yellow"
-                  }
-                    
-                  `}
+                  className={`itemstatus ${
+                    orderItem.PaymetStatus === "Ready"
+                      ? "itemstatus-green"
+                      : orderItem.PaymetStatus === "Deleted"
+                      ? "itemstatus-red"
+                      : "itemstatus-yellow"
+                  }`}
                 >
                   {orderItem.PaymetStatus}
                 </div>
-              </div>
-              <hr className="separator"></hr>
-            </>
-          );
-        })}
-      </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <br />
       <Footer />
     </>
   );
