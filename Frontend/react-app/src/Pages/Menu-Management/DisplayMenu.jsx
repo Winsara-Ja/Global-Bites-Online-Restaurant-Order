@@ -30,6 +30,7 @@ const DisplayMenu = () => {
     navigate("/addItems");
   };
 
+  //search items
   const filteredItems = items.filter((item) =>
     item.itemName.toLowerCase().includes(searchQuery.toLowerCase())
   );
