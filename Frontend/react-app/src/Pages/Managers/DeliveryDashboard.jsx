@@ -2,12 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 import ManagerHeader from "./ManagerHeader";
 import { Link } from "react-router-dom";
+import NavBar from "../../components/Navbar";
 
 const DeliveryDashboard = () => {
   const { currentUser } = useSelector((state) => state.user);
   return (
     <>
-      <ManagerHeader />
+      <NavBar />
       <div className="menu-offer-container1">
         <div className="menu-container">
           {currentUser && currentUser.isAdmin && (

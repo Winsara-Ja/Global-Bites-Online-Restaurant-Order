@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Deliveris.css";
-import ManagerHeader from "../../../../Pages/Managers/ManagerHeader.jsx";
+import ManagerHeader from "../../../../components/Navbar.jsx";
 
 const Deliveries = () => {
   const [deliveries, setDeliveries] = useState([]);

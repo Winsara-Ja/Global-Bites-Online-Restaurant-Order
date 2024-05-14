@@ -81,20 +81,20 @@ const Deliveries = () => {
                 {search.map((orderItem) => {
                   return (
                     <>
-                      <div className="order-summary">
+                      <div className="order-summary1">
                         {orderItem.ItemData.map((item) => {
                           return (
-                            <div className="order-summary">
-                              <div className="itemname">{item.ItemName}</div>
-                              <div className="itemquantity">
-                                {item.Quantity}
+                            <div className="order-summary1">
+                              <div className="itemname1">
+                                {item.ItemName} x {item.Quantity}
                               </div>
+                              <div className="itemquantity1"></div>
                             </div>
                           );
                         })}
                       </div>
-                      <div className="itemquantity">
-                        Rs.{orderItem.TotalPrice}
+                      <div className="itemquantity2">
+                        Total Price Rs.{orderItem.TotalPrice}
                       </div>
                     </>
                   );

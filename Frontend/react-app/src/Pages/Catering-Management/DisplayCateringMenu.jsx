@@ -69,9 +69,10 @@ const DisplayMenu = () => {
               <tr key={item._id}>
                 <td>{item.MenuID}</td>
                 <td>
-                {item.MenuItems.map((menuItems) => (
-                  <p>{menuItems.ItemName}</p>
-                ))}</td>
+                  {item.MenuItems.map((menuItems) => (
+                    <p>{menuItems.ItemName}</p>
+                  ))}
+                </td>
                 <td>{item.Description}</td>
                 <td>{item.Country}</td>
                 <td>{item.TotalPrice}</td>
@@ -82,9 +83,6 @@ const DisplayMenu = () => {
                   />
                 </td>
                 <td className="button-col">
-                  <button type="button" onClick={() => HandleEdit(item._id)}>
-                    Edit
-                  </button>
                   <button type="button" onClick={() => handleDelete(item._id)}>
                     Delete
                   </button>

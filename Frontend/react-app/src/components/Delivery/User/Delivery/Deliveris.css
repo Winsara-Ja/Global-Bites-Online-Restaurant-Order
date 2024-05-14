@@ -57,3 +57,18 @@
   padding: 10px;
   background-color: rgba(128, 128, 128, 0.153);
 }
+
+.order-summary1 {
+  position: relative;
+  left: 220px;
+  bottom: 125px;
+  font-size: large;
+  font-weight: bold;
+
+}
+
+.itemquantity2 {
+  position: relative;
+  left: 440px;
+  bottom: 230px;
+}
