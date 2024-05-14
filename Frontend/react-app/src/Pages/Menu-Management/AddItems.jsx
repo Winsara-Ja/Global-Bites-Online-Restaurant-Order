@@ -52,15 +52,15 @@ const AddItems = () => {
             },
         });
         if (response.data.success) {
-            console.log("Success:", response.data.message);
             alert(response.data.message);
             navigate("/manageMenu");
         } else {
             console.log("Failure:", response.data.message);
             if (response.data.exists) {
-                toast(response.data.message);
+              alert(response.data.message);
             } else {
-                console.error("Error:", response.data.message);
+              alert(response.data.message)
+              console.error("Error:", response.data.message);
             }
         }
     } catch (error) {

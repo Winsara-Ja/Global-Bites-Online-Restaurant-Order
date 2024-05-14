@@ -31,6 +31,10 @@ const SriLanka = () => {
     }
   }, [items]);
 
+  const handleImageClick = async(id) => {
+    navigate("/singleItem/" + id)
+  }
+
   return (
     <>
       <Header />
@@ -49,11 +53,10 @@ const SriLanka = () => {
                   <img
                     src={"http://localhost:5000/" + item.image}
                     alt={item.itemName}
+                    onClick={() => handleImageClick(item._id)}
                   />
                 </div>
-                <div className="product-text2">
-                  <p>{item.Description}</p>
-                </div>
+                
                 <div className="price">Rs.{item.Price}</div>
                 <div className="product-price-btn">
                   <button type="button">Add To Cart</button>

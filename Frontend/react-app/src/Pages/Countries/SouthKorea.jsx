@@ -51,9 +51,7 @@ const SouthKorea = () => {
                     alt={item.itemName}
                   />
                 </div>
-                <div className="product-text2">
-                  <p>{item.Description}</p>
-                </div>
+                
                 <div className="price">Rs.{item.Price}</div>
                 <div className="product-price-btn">
                   <button type="button">Add To Cart</button>

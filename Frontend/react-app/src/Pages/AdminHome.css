@@ -32,3 +32,24 @@
   width: 65%;
   margin-left: 300px;
  }
+
+ .adminhomediv {
+  position: absolute;
+  top: 80px;
+  left: 420px;
+  text-align: center;
+  font-size: 4rem;
+  width: 60%;
+  height: 600px;
+  font-weight: bold;
+  font-family: "jockey one";
+  color: #f7e62c;
+  background-image: url("/8.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 6px;
+ }
+
+ .gbh1 {
+  margin-top: 140px;
+ }
